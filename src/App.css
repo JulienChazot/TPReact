@@ -8,7 +8,7 @@
   margin: 0 auto;
   height: 150px;
   text-align: center;
-  background-color: #88421D;
+  background-color: #1F9AC4;
   top: 0;
   position: relative;
 }
@@ -19,8 +19,14 @@
   text-align: center;
 }
 
+.titre{
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 50px;
+}
+
 .mesinfos{
-  background-color: #88421D;
+  background-color: #1F9AC4;
   width: 80%;
   margin: 0 auto;
   color: white;
@@ -30,7 +36,7 @@
 }
 
 .majinfos{
-  background-color: #88421D;
+  background-color: #1F9AC4;
   width: 80%;
   margin: 0 auto;
   color: white;
@@ -44,8 +50,22 @@
   height: 150px;
   margin-top: 50px;
   text-align: center;
-  background-color: #88421D;
+  background-color: #1F9AC4;
   bottom: 0;
   position: relative;
+}
+
+.developed{
+  max-width: 1140px;
+  font-size: 14px;
+  text-align: end;
+  width: 100%;
+  padding-top: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  #root {
+    height: 1570px;
+  }
 }
 
