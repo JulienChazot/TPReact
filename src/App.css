@@ -1,0 +1,51 @@
+#root {
+  text-align: center;
+  width: 100%;
+}
+
+.header{
+  width: 100%;
+  margin: 0 auto;
+  height: 150px;
+  text-align: center;
+  background-color: #88421D;
+  top: 0;
+  position: relative;
+}
+
+.main{
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mesinfos{
+  background-color: #88421D;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  margin-bottom: 50px;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.majinfos{
+  background-color: #88421D;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.footer{
+  width: 100%;
+  margin: 0 auto;
+  height: 150px;
+  margin-top: 50px;
+  text-align: center;
+  background-color: #88421D;
+  bottom: 0;
+  position: relative;
+}
+
