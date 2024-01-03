@@ -2,8 +2,9 @@ import './App.css'
 import Profile from './components/Profile/Profile';
 import ModifProfil from './components/ModifProfil/ModifProfil';
 import viteLogo from '/vite.svg'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AuthContext from './store/auth-context';
+
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -15,6 +16,7 @@ function App() {
 
   function onClickHandlerModif(modif) {
     console.log("Je viens de modif", modif);
+
     return "cacher";
   }
 
@@ -29,26 +31,19 @@ function App() {
     console.log('Changements dans le formulaire:', profileData);
   }, [profileData]);
 
-  const submitHandler = event => {
-    event.preventDefault();
-    console.log('Envoyer profileData pour mise à jour du profil:', profileData);
-  };
 
   return (
     <>
-    <React.Fragment>
-      <MainHeader />
       <main>
-        {!ctx.isLoggedIn && <Login />}
-        {ctx.isLoggedIn && <Home />}
+        {!ctx.isLoggedIn && <div className='top'><a href="login" className='log'>Vous n'êtes pas connecté</a></div>}
+        {ctx.isLoggedIn && <div className='top'>Vous êtes connecté</div>}
       </main>
-    </React.Fragment>
 
     <div className="header">
       <div className="titre">TP de Julien CHAZOT</div>
           <img src={viteLogo} className="logo" alt="Vite logo" />
     </div>
-    <form method="get" onSubmit={submitHandler}> 
+
     <div className="main">
       <h1>Mon Profil Vite + React</h1>
       <div className="mesinfos">
@@ -60,8 +55,8 @@ function App() {
         <ModifProfil profileData={profileData} setProfileData={setProfileData} childClickHandler={onClickHandlerModif} />
       </div>
     </div>
-    </form>
     <div className="footer">
+      <div className="avert">Attention, ne pas actualiser la page après modifications</div>
       <div className="developed">Developped by Julien Chazot</div>
     </div>
     </>

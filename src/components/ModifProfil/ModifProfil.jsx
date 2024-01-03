@@ -18,7 +18,8 @@ function ModifProfil({ childClickHandler, setProfileData, profileData }) {
   };
 
   const handleModifierClick = () => {
-    childClickHandler(setProfileData);
+    //childClickHandler(setProfileData);
+    setProfileData(newData)
   };
 
   return (
