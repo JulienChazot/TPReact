@@ -1,31 +1,29 @@
 import React, { useState } from 'react';
 import styles from './ModifProfil.module.css';
 
-function ModifProfil({ childClickHandler, data, onDataUpdate }) {
+function ModifProfil({ childClickHandler, setProfileData, profileData }) {
   const [visible, setVisible] = useState(false);
-  const [newData, setNewData] = useState({
-    nom: data[0].nom,
-    prenom: data[0].prenom,
-    adresse: data[0].adresse,
-    telephone: data[0].telephone
-  });
+  const [newData, setNewData] = useState(profileData);
 
-  
+  const submitModif = event => {
+    event.preventDefault();
+    console.log('Envoyer setProfileData pour mise à jour du profil:', setProfileData);
+  };
+
   const handleInputChange = (e, fieldName) => {
-    setNewData((prevData) => ({
+    setNewData(prevData => ({
       ...prevData,
       [fieldName]: e.target.value
     }));
   };
 
   const handleModifierClick = () => {
-    onDataUpdate(newData);
-    setVisible(false);
-    childClickHandler("test");
+    childClickHandler(setProfileData);
   };
 
   return (
     <>
+    
       <button
         onClick={() => {
           setVisible(!visible);
@@ -36,6 +34,7 @@ function ModifProfil({ childClickHandler, data, onDataUpdate }) {
       </button>
 
       {visible && (
+        <form method="get" onSubmit={submitModif}> 
         <div className={styles.modifprofil}>
           <input
             type="text"
@@ -57,12 +56,13 @@ function ModifProfil({ childClickHandler, data, onDataUpdate }) {
           />
           <input
             type="text"
-            placeholder="Nouveau numéro de telephone"
+            placeholder="Nouveau numéro de téléphone"
             value={newData.telephone}
             onChange={(e) => handleInputChange(e, "telephone")}
           />
           <button onClick={handleModifierClick}>Modifier</button>
         </div>
+        </form>
       )}
     </>
   );
