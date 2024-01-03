@@ -3,8 +3,10 @@ import Profile from './components/Profile/Profile';
 import ModifProfil from './components/ModifProfil/ModifProfil';
 import viteLogo from '/vite.svg'
 import React, { useState, useEffect } from 'react';
+import AuthContext from './store/auth-context';
 
 function App() {
+  const ctx = useContext(AuthContext);
 
   function onClickHandler(profil) {
     console.log("Je viens de profil", profil);
@@ -34,6 +36,14 @@ function App() {
 
   return (
     <>
+    <React.Fragment>
+      <MainHeader />
+      <main>
+        {!ctx.isLoggedIn && <Login />}
+        {ctx.isLoggedIn && <Home />}
+      </main>
+    </React.Fragment>
+
     <div className="header">
       <div className="titre">TP de Julien CHAZOT</div>
           <img src={viteLogo} className="logo" alt="Vite logo" />

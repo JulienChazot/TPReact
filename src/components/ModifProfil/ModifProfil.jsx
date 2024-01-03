@@ -34,8 +34,8 @@ function ModifProfil({ childClickHandler, setProfileData, profileData }) {
       </button>
 
       {visible && (
-        <form method="get" onSubmit={submitModif}> 
         <div className={styles.modifprofil}>
+        <form method="get" onSubmit={submitModif}>
           <input
             type="text"
             placeholder="Nouveau nom"
@@ -61,8 +61,8 @@ function ModifProfil({ childClickHandler, setProfileData, profileData }) {
             onChange={(e) => handleInputChange(e, "telephone")}
           />
           <button onClick={handleModifierClick}>Modifier</button>
-        </div>
-        </form>
+          </form>
+        </div> 
       )}
     </>
   );
